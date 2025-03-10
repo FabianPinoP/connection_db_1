@@ -19,4 +19,41 @@ const addTravel = async (destino, presupuesto) => {
   return response.rows;
 };
 
-export { getTravels, addTravel };
+// parte 2
+
+const setTravel = async (destino, presupuesto, travelId, oldData) => {
+  const newDestino = destino || oldData.destino
+  const newPresupuesto = presupuesto || oldData.presupuesto
+
+  const SQLquery = {
+    text: "UPDATE viajes SET destino = $1, presupuesto = $2 WHERE id = $3 RETURNING *",
+    values: [newDestino, newPresupuesto, travelId],
+  };
+
+  const response = await pool.query(SQLquery);
+  return response.rows;
+}
+
+const travelById = async (id) => {
+  const SQLquery = {
+    text: "SELECT * FROM viajes WHERE id = $1",
+    values: [Number(id)]
+  };
+  const response = await pool.query(SQLquery);
+  console.log(response);
+  
+  return response.rows[0];
+}
+
+const destroyTravel = async (id) => {
+  const SQLquery = {
+    text: "DELETE FROM viajes WHERE id = $1",
+    values: [Number(id)]
+  };
+  const response = await pool.query(SQLquery);
+  console.log(response);
+  
+  return response.rowCount;
+}
+ 
+export { getTravels, addTravel, setTravel, travelById, destroyTravel };

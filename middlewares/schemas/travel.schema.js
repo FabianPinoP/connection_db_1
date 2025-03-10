@@ -5,4 +5,9 @@ const createTravelSchema = Joi.object({
   presupuesto: Joi.number().required()
 })
 
-export { createTravelSchema }
+const updateTravelSchema = Joi.object({
+  destino: Joi.string().optional(),
+  presupuesto: Joi.number().optional()
+})
+
+export { createTravelSchema, updateTravelSchema }
