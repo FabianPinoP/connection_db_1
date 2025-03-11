@@ -13,8 +13,8 @@ const getAllTravels = async (req, res) => {
   } catch (error) {
     const errorFound = findError(error.code);
     return res
-    .status(errorFound[0].status)
-    .json({ error: errorFound[0].message, type: errorFound[0].type });
+      .status(errorFound[0].status)
+      .json({ error: errorFound[0].message, type: errorFound[0].type });
   }
 };
 
@@ -27,8 +27,8 @@ const createTravel = async (req, res) => {
     console.log(error);
     const errorFound = findError(error.code);
     return res
-    .status(errorFound[0].status)
-    .json({ error: errorFound[0].message, type: errorFound[0].type });
+      .status(errorFound[0].status)
+      .json({ error: errorFound[0].message, type: errorFound[0].type });
   }
 };
 
@@ -44,21 +44,23 @@ const updateTravel = async (req, res) => {
   } catch (error) {
     const errorFound = findError(error.code);
     return res
-    .status(errorFound[0].status)
-    .json({ error: errorFound[0].message, type: errorFound[0].type });
+      .status(errorFound[0].status)
+      .json({ error: errorFound[0].message, type: errorFound[0].type });
   }
 };
 
 const deleteTravel = async (req, res) => {
   try {
     const { travel_id } = req.params;
-    const travel =  await destroyTravel(travel_id);
-    res.status(204).json({ message: "travel eliminado con exito", rows: travel });
+    const travel = await destroyTravel(travel_id);
+    res
+      .status(204)
+      .json({ message: "travel eliminado con exito", rows: travel });
   } catch (error) {
     const errorFound = findError(error.code);
     return res
-    .status(errorFound[0].status)
-    .json({ error: errorFound[0].message, type: errorFound[0].type });
+      .status(errorFound[0].status)
+      .json({ error: errorFound[0].message, type: errorFound[0].type });
   }
 };
 

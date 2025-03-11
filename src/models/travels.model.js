@@ -29,9 +29,9 @@ const setTravel = async (destino, presupuesto, travelId, oldData) => {
     text: "UPDATE viajes SET destino = $1, presupuesto = $2 WHERE id = $3 RETURNING *",
     values: [newDestino, newPresupuesto, travelId],
   };
-
+  
   const response = await pool.query(SQLquery);
-  return response.rows;
+  return response.rows[0];
 }
 
 const travelById = async (id) => {
@@ -40,8 +40,6 @@ const travelById = async (id) => {
     values: [Number(id)]
   };
   const response = await pool.query(SQLquery);
-  console.log(response);
-  
   return response.rows[0];
 }
 
@@ -51,8 +49,6 @@ const destroyTravel = async (id) => {
     values: [Number(id)]
   };
   const response = await pool.query(SQLquery);
-  console.log(response);
-  
   return response.rowCount;
 }
  
