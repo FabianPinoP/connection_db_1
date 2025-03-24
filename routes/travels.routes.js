@@ -13,14 +13,15 @@ import {
   createTravelMiddleware,
   updateTravelMiddleware,
 } from "../middlewares/travels.middlewares.js";
+import { verifyToken } from "../middlewares/verify.token.middleware.js";
 const router = express.Router();
 // acceso a db parte 1
-router.get("/travels", getAllTravels);
-router.post("/create_travels", createTravelMiddleware, createTravel);
+router.get("/travels", verifyToken, getAllTravels);
+router.post("/create_travels", verifyToken, createTravelMiddleware, createTravel);
 
 // acceso a db parte 2
-router.put("/update_travel/:travel_id", updateTravelMiddleware, updateTravel);
-router.delete("/delete_travel/:travel_id", deleteTravel);
+router.put("/update_travel/:travel_id", verifyToken, updateTravelMiddleware, updateTravel);
+router.delete("/delete_travel/:travel_id", verifyToken, deleteTravel);
 
 // parte 3 rest avanzada
 router.get("/travels_limit", limitTravels);

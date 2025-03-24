@@ -7,7 +7,8 @@ const envs = {
   passwordDb: process.env.PASSWORD_DB,
   nameDatabase: process.env.NAME_DATABASE,
   frontUrl: process.env.FRONT_URL,
-  prodUrl: process.env.PROD_FRONT_URL
+  prodUrl: process.env.PROD_FRONT_URL,
+  jwtSecret: process.env.JWT_SECRET
 }
 
 export { envs }

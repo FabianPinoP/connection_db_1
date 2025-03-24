@@ -4,7 +4,10 @@ CREATE TABLE viajes (
   presupuesto INT NOT NULL
 );
 
-CREATE TABLE equipamiento (
+CREATE TABLE usuarios (
   id SERIAL, 
-  nombre VARCHAR(50)
+  nombre VARCHAR(50),
+  apellido VARCHAR(50),
+  email VARCHAR(255) UNIQUE,
+  password VARCHAR(255)
   );
