@@ -32,7 +32,7 @@ const createTravel = async (req, res) => {
     const travel = await addTravel(destino, presupuesto);
     res.status(201).json(travel);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     const errorFound = findError(error.code);
     return res
       .status(errorFound[0].status)
@@ -47,8 +47,9 @@ const updateTravel = async (req, res) => {
     const { travel_id } = req.params;
     const { destino, presupuesto } = req.body;
     const oldTravel = req.oldData;
+    
     const travel = await setTravel(destino, presupuesto, travel_id, oldTravel);
-    res.status(201).json(travel);
+    res.status(200).json(travel);
   } catch (error) {
     const errorFound = findError(error.code);
     return res

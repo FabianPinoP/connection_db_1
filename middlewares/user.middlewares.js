@@ -5,7 +5,7 @@ const createUserMiddleware = async (req, res, next) => {
   const { email } = req.body;
   const { error } = createUserSchema.validate(req.body);
   if (error) {
-    res.status(400).json(error.details.map((detail) => detail.message));
+    return res.status(400).json(error.details.map((detail) => detail.message));
   }
 
   const user = await findUserByEmail(email);

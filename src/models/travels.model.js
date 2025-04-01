@@ -14,11 +14,11 @@ const getTravels = async () => {
 const addTravel = async (destino, presupuesto) => {
   const SQLquery = {
     text: "INSERT INTO viajes (destino, presupuesto) VALUES ($1, $2) RETURNING *",
-    values: [destino, presupuesto],
+    values: [destino, Number(presupuesto)],
   };
 
   const response = await pool.query(SQLquery);
-  return response.rows;
+  return response.rows[0];
 };
 
 // parte 2

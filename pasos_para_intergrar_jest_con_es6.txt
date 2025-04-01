@@ -1,0 +1,50 @@
+Agregar paquetes 
+npm i @babel/preset-env
+npm i -D jest
+npm i -D supertest
+
+Instalar faker (opcional)
+
+npm i -D @faker-js/faker
+
+Agregar scripts 
+    "test": "PORT=0 jest --coverage --forceExit", le indica al servidor que, en lugar de usar un puerto fijo, debe asignarse automáticamente a uno disponible en el sistema operativo Evita 										conflictos de puertos: Si otro proceso ya está usando un puerto específico
+                      								realices modificaciones, Jest volverá a ejecutar automáticamente los tests correspondientes
+ 
+Agregar scripts para que pueda leer es6 jest
+
+En package json
+
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest" indica que para cualquier archivo JavaScript (aquellos que coincidan con la expresión regular ^.+\.js$), Jest debe transformarlos usando babel-jest. 							Esto permite que puedas usar características modernas de JavaScript (ES6+), ya que Babel las transpila a una versión que Node.js
+    },
+    "collectCoverageFrom": [
+      "**/*.js” 	Aquí se le dice a Jest que recoja información de cobertura de código de todos los archivos JavaScript dentro de tu proyecto. Es decir, se analizará cada archivo .js 				para determinar qué tan bien están cubiertas las pruebas.
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/" Con este patrón se excluyen de la cobertura los archivos que se encuentran en la carpeta node_modules, ya que estos archivos son dependencias externas y 					no son parte del código que normalmente deseas probar.
+    ],
+    "coverageThreshold": { 	Este apartado establece un umbral de cobertura global que debe alcanzarse para que las pruebas sean consideradas exitosas. En este caso, se exige 							un 100% de cobertura en:
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  }
+
+
+Agregar archivo en la raiz .babelrc y agregar lo siguiente 
+{
+  "presets": [ Un preset en Babel es una configuración predefinida que agrupa múltiples plugins y ajustes necesarios para transformar el código
+    [
+      "@babel/preset-env", { Es un preset que permite usar las últimas características de JavaScript sin preocuparte por la compatibilidad, ya que transpila el código a una versión 							compatible según el entorno destino.
+        "targets": {
+          "node": "current" 	le indica a Babel que el código se ejecutará en la versión actual de Node.js. Esto significa que solo se aplicarán las transformaciones necesarias para 								garantizar la compatibilidad con esa versión, evitando transpilar características que ya son soportadas por el entorno actual.
+        }
+      }
+    ]
+  ]
+}

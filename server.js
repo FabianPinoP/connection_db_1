@@ -4,7 +4,7 @@ import { envs } from './config/envs.js'
 import travelRoutes from './routes/travels.routes.js'
 import userRoutes from './routes/usuarios.routes.js'
 import authRoutes from './routes/auth.routes.js'
-import { logger } from "logger-express";
+// import { logger } from "logger-express";
 
 const loggerOption = {
   logToFile: true, // If you need to log information to a file
@@ -31,7 +31,7 @@ app.use(
     }
   })
 )
-app.use(logger(loggerOption));
+// app.use(logger(loggerOption));
 app.use(express.json());
 app.use('/api', travelRoutes)
 app.use('/api', userRoutes)
@@ -40,3 +40,4 @@ app.use('/api', authRoutes)
 
 
 app.listen(port, console.log(`servidor encendido en el puerto! ${port}`))
+export default app;
