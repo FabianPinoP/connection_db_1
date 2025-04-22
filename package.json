@@ -22,7 +22,9 @@
     "jsonwebtoken": "^9.0.2",
     "logger-express": "^1.1.0",
     "pg": "^8.13.3",
-    "pg-format": "^1.0.4"
+    "pg-format": "^1.0.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",

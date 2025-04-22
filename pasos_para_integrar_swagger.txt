@@ -1,0 +1,9 @@
+Agregar paquetes
+-npm i swagger-jsdoc
+-npm i swagger-ui-express
+
+En el archivo config crear swagger.js
+agregar configuracion en swagger.js
+Crear carpeta docs en routes
+Crear archivos por entidad
+llamar en server js a swagger y pasar como parametro app
