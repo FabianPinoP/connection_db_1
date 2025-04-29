@@ -5,6 +5,8 @@ import travelRoutes from './routes/travels.routes.js'
 import userRoutes from './routes/usuarios.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import swagger from "./config/swagger/swagger.js";
+import stripeWebhooks from './routes/stripe.webhooks.js'
+import stripeRoutes from './routes/stripe.routes.js'
 
 import { logger } from "logger-express";
 
@@ -40,6 +42,8 @@ app.use(express.json());
 app.use('/api', travelRoutes)
 app.use('/api', userRoutes)
 app.use('/api', authRoutes)
+app.use('/', stripeWebhooks)
+app.use('/api', stripeRoutes)
 
 
 

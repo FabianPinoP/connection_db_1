@@ -8,7 +8,8 @@ const envs = {
   nameDatabase: process.env.NAME_DATABASE,
   frontUrl: process.env.FRONT_URL,
   prodUrl: process.env.PROD_FRONT_URL,
-  jwtSecret: process.env.JWT_SECRET
+  jwtSecret: process.env.JWT_SECRET,
+  stripeApiKey: process.env.STRIPE_API_KEY
 }
 
 export { envs }

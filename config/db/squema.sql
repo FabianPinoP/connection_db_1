@@ -11,3 +11,5 @@ CREATE TABLE usuarios (
   email VARCHAR(255) UNIQUE,
   password VARCHAR(255)
   );
+
+  ALTER TABLE usuarios ADD stripe_customer_id VARCHAR(100);

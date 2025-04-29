@@ -25,4 +25,13 @@ const findUserByEmail = async (email) => {
   }
 };
 
-export { createUser, findUserByEmail };
+const saveStripeCustomerId = async (userId, stripeCustomerId) => {
+  const SQLquery = {
+    text: "UPDATE usuarios SET stripe_customer_id =$2 WHERE id = $1 RETURNING *",
+    values: [userId, stripeCustomerId],
+  };
+  const response = await pool.query(SQLquery);
+  return response.rows[0];
+}
+
+export { createUser, findUserByEmail, saveStripeCustomerId };

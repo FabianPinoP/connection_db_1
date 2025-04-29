@@ -1,0 +1,25 @@
+crear cuenta en stripe 
+instalar sdk stripe 
+- npm install stripe
+crear carpeta y archivos para stripe en config
+agregar inicializador de stripe 
+crear funciones necesarias para stripe
+- crear customers cuando un usuario se crea https://docs.stripe.com/api/customers/create
+- agregar columnas necesarias para guardar info del usuario
+conectar webhooks de customer https://docs.stripe.com/payments/handling-payment-events
+ver eventos de stripe https://docs.stripe.com/api/events/types
+instalamos el cli de stripe
+- brew install stripe/stripe-cli/stripe
+- ejecutamos la recepcion de webhooks de stripe en la consola (esto es solo para probar en desarrollo) stripe listen --forward-to http://localhost:3000/webhook
+- creamos rutas para recibir webhooks
+- probamos la creacion de usuario y recepcion de evento guardando el customer id
+
+- creamos producto en stripe
+- al crear un producto en la base de datos debemos crearlo en stripe esto tiene 2 pasos
+  - creamos el producto https://docs.stripe.com/api/products/create
+  - luego con la respuesta extraemos el id del producto y creamos el price y en la metadata guardamos el id del producto que viene de nuestra db https://docs.stripe.com/api/prices/create
+  - con el evento de respuesta price.created buscamos en la metadata el id del producto en la db y lo actualizamos guardando el price id para usarlo en el checkout 
+- creamos end point que nos devuelva los productos de stripe para hacer una prueba https://docs.stripe.com/api/products/list (nota al crear un producto o publicacion en el proyecto se debe crear el producto en stripe para extraer sus valore sus guardarlos para generar la venta https://docs.stripe.com/api/products/create)
+- creamos end point para crear checkout
+- consultamos un producto extraemos su price id y probamos el checkout
+- con la respuesta del evento checkout.session.completed en la metadata estara el id del carro con la informacion que llega podemos cambiar su status etc

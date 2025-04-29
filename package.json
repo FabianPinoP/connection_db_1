@@ -23,6 +23,7 @@
     "logger-express": "^1.1.0",
     "pg": "^8.13.3",
     "pg-format": "^1.0.4",
+    "stripe": "^18.0.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
