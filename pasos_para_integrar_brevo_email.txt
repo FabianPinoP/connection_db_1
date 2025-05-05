@@ -1,0 +1,13 @@
+agregar paquetes 
+- npm i @getbrevo/brevo --save https://github.com/getbrevo/brevo-node
+crear una cuenta en brevo
+ir a transaccional -> configuracion -> obtener api key
+- guardar api key en archivo .env
+- llamar a la variable de entorno en archivo envs.js
+crear carpeta para la configuracion de brevo mas archivo
+seguir documentacion de implementacion https://github.com/getbrevo/brevo-node
+- importar paquete
+- iniciar la instancia pasando la api key (usar api transaccional)
+- crear funcion para enviar emails
+- crear carpeta mailers para guardar los distintos tipos de correos a usar
+- crear templates de correo

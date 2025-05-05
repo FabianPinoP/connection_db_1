@@ -13,3 +13,4 @@ CREATE TABLE usuarios (
   );
 
   ALTER TABLE usuarios ADD stripe_customer_id VARCHAR(100);
+  ALTER TABLE usuarios ADD COLUMN avatar_url VARCHAR, ADD COLUMN avatar_id VARCHAR;

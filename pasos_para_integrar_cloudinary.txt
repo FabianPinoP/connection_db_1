@@ -1,0 +1,19 @@
+instalar paquete
+- npm i cloudinary
+- npm i multer
+- npm i streamifier  para convertir un Buffer en un stream legible
+en la carpeta config creamos carpeta para cloudinary
+creamos cuenta en cloudinary
+copiamos las variables como api key, secreto etc para inicializar la configuracion
+agregamos las variables al archivo env y envs.js
+inicializar la configuracion
+creamos la funcion que va a subir las imagenes
+creamos una ruta para probar de momento la dejaremos en user
+creamos la configuracion de multer para procesar la imagen en la carpeta config
+aplicamos multer a la ruta
+probamos la subida
+aplicamos segun corresponda 
+- por ejemplo para que un usuario guarde su avatar debemos crear 2 columnas 
+  - para guardar la url a usar
+  - para guardar el id de la imagen de cloudinary para poder eliminar o actualizar esta
+integrar a flujo de usuario

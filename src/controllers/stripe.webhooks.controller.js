@@ -12,6 +12,15 @@ const stripeWebhooks = async (req, res) => {
     case 'checkout.session.completed':
       // aqui buscamos el cart id desde la metadata y con ese id actualizamos el status del carrito a pagado
       console.log(event.data.object);
+      const checkout = event.data.object
+      const incommingStatus =  checkout.payment_status
+      const statusCarts = ['paid', 'cancel', 'error', 'incomplete'] 
+
+      if (statusCarts.includes(incommingStatus)) {
+        // guardamos el estado en el carro
+      } else {
+        
+      }
       break;
     case 'price.created':
       // aqui buscamos el id del producto en la metadata hacemos una consulta a la db y actualizamos el registro guardando el price id para usarlo en el checkout
