@@ -1,0 +1,10 @@
+en este caso usaremos render para hacer nuestro depliegue
+paso 1
+- crear cuenta en render 
+- vamos a projetcs y seleccionamos postgres
+- creamos la base de datos
+paso 2 preparar la db para el depliegue
+- configurar el archivo que de la conexion para que reciba un string conection
+- con la external url de conexion que nos entrega render debemos conectarnos a la db y creamos las tablas de nuestro proyecto
+- guardamos las env que nos entrega render para usarlas en el despliegue del backend
+- aqui decidimos si usar la url de conexion o la conexion tradicional

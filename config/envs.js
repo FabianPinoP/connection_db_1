@@ -13,7 +13,8 @@ const envs = {
   brevoApiKey: process.env.BREVO_API_KEY,
   cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME,
   cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
-  cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET
+  cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET,
+  databaseUrl: process.env.DATABASE_URL
 }
 
 export { envs }

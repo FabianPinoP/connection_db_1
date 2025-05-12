@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch server.js",
-    "test": "PORT=0 jest --coverage --forceExit"
+    "test": "PORT=0 jest --coverage --forceExit",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
