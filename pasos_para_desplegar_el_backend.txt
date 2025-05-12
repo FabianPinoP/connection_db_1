@@ -8,3 +8,5 @@ paso 2 preparar la db para el depliegue
 - con la external url de conexion que nos entrega render debemos conectarnos a la db y creamos las tablas de nuestro proyecto
 - guardamos las env que nos entrega render para usarlas en el despliegue del backend
 - aqui decidimos si usar la url de conexion o la conexion tradicional
+paso 3
+

@@ -46,6 +46,9 @@ app.use('/', stripeWebhooks)
 app.use('/api', stripeRoutes)
 
 
+app.get('/health', async (req, res) =>{
+  res.status(200).send('is alive')
+})
 
 app.listen(port, () => {
   console.log(`servidor encendido en el puerto! ${port}`)
